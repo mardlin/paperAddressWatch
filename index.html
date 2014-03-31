@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Address Watcher</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+    //insert your own addresses 
+    var addys = ['1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp','1dice97ECuByXAvqXpaYzSaQuPVvrtmz6'];
+    var total = 0; 
+    
+    $(document).ready(function(){
+      addys.forEach(function(entry){
+        $.get('https://blockchain.info/q/addressbalance/'+ entry, function(data){
+          var bal = data/100000000;
+          total = total + bal;
+          $('article').append("<p>" + entry + " balance is <strong>" + bal +"</strong> and total so far is: <strong>" + total + "</strong></p>"); 
+     
+     
+        });
+        
+      });
+     
+      });
+      
+    
+    </script>
+
+</head
+<body>
+
+  <article>
+    <p>Ready!</p>
+  </article>
+
+
+
+</body>
